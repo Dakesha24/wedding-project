@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#E7D9BC;color:#2C2822;}
+  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes petalFall{0%{transform:translateY(-12%) translateX(0) rotate(0);opacity:0}12%{opacity:.85}100%{transform:translateY(560px) translateX(30px) rotate(340deg);opacity:0}}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:#D9C7A3;border-radius:10px}
+  @media (max-width:640px){
+    [data-navlinks]{width:100%;justify-content:center;gap:12px 18px;margin-top:4px;}
+    [data-navlinks] a{font-size:13px;}
+  }
+</style>
+</helmet>
+
+<div style="font-family:'Jost',sans-serif;color:#2C2822;background:#FBF6EC;overflow-x:hidden;position:relative;">
+
+  <!-- NAV -->
+  <header style="position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(251,246,236,.82);border-bottom:1px solid rgba(176,141,79,.16);">
+    <nav style="max-width:1240px;margin:0 auto;padding:15px clamp(18px,4vw,44px);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;">
+      <a href="#beranda" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:#2C2822;">
+        <span style="width:10px;height:10px;background:#B08D4F;transform:rotate(45deg);display:inline-block;"></span>
+        <span style="display:flex;flex-direction:column;line-height:1;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600;letter-spacing:.6px;">Kirana</span>
+          <span style="font-size:9.5px;letter-spacing:.42em;color:#A08C6A;margin-top:3px;">UNDANGAN DIGITAL</span>
+        </span>
+      </a>
+      <div data-navlinks="" style="display:flex;align-items:center;gap:clamp(15px,2.3vw,32px);flex-wrap:wrap;font-size:14px;letter-spacing:.02em;">
+        <a href="#beranda" style="color:#4A443A;text-decoration:none;transition:color .3s;" style-hover="color:#B08D4F;">Beranda</a>
+        <a href="#katalog" style="color:#4A443A;text-decoration:none;transition:color .3s;" style-hover="color:#B08D4F;">Katalog Undangan</a>
+        <a href="#cara" style="color:#4A443A;text-decoration:none;transition:color .3s;" style-hover="color:#B08D4F;">Cara Pemesanan</a>
+        <a href="#tentang" style="color:#4A443A;text-decoration:none;transition:color .3s;" style-hover="color:#B08D4F;">Tentang Kami</a>
+        <a href="#kontak" style="padding:9px 20px;border:1px solid #B08D4F;border-radius:999px;color:#8A6A32;text-decoration:none;letter-spacing:.14em;font-size:11.5px;text-transform:uppercase;transition:all .3s;" style-hover="background:#B08D4F;color:#fff;">Kontak</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="beranda" style="scroll-margin-top:88px;position:relative;padding:clamp(122px,17vh,190px) clamp(18px,4vw,44px) clamp(64px,9vh,110px);overflow:hidden;">
+    <div style="position:absolute;top:-60px;right:-70px;width:min(46vw,540px);opacity:.16;pointer-events:none;filter:saturate(.9);">
+      <img src="assets/bouquet.jpg" alt="" style="width:100%;display:block;mix-blend-mode:multiply;">
+    </div>
+    <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 78% 12%, rgba(224,208,175,.34), transparent 55%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:clamp(30px,5vw,70px);flex-wrap:wrap;">
+      <div data-reveal="" style="flex:1 1 380px;min-width:300px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:26px;">
+          <span style="width:34px;height:1px;background:#B08D4F;"></span>
+          <span style="font-size:12px;letter-spacing:.34em;color:#A0824A;">UNDANGAN DIGITAL PREMIUM</span>
+        </div>
+        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,6.4vw,74px);line-height:1.04;margin:0 0 26px;letter-spacing:-.5px;">Wujudkan Momen Spesial dengan <span style="font-style:italic;color:#B08D4F;">Undangan Digital</span> yang Berkesan</h1>
+        <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.7;color:#6E665A;max-width:520px;margin:0 0 38px;font-weight:300;">Jelajahi berbagai desain undangan digital yang elegan dan temukan template yang sesuai dengan hari bahagia Anda.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+          <a href="#katalog" style="display:inline-flex;align-items:center;gap:10px;background:#B08D4F;color:#fff;padding:16px 34px;border-radius:999px;text-decoration:none;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;box-shadow:0 16px 34px -14px rgba(176,141,79,.7);transition:transform .35s,box-shadow .35s;" style-hover="transform:translateY(-3px);box-shadow:0 22px 42px -14px rgba(176,141,79,.8);">Lihat Katalog</a>
+          <a href="#cara" style="display:inline-flex;align-items:center;gap:8px;color:#4A443A;padding:16px 22px;border-radius:999px;text-decoration:none;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;border:1px solid #D9C7A3;transition:all .35s;" style-hover="background:#F1E8D8;">Cara Pemesanan</a>
+        </div>
+      </div>
+
+      <div data-reveal="" style="flex:0 1 auto;display:flex;justify-content:center;margin:0 auto;">
+        <div style="animation:floatY 6.5s ease-in-out infinite;position:relative;">
+          
+          <div style="width:clamp(248px,31vw,306px);aspect-ratio:0.5;background:#181613;border-radius:46px;padding:12px;box-shadow:0 40px 80px -30px rgba(44,40,34,.7),0 0 0 1px rgba(255,255,255,.05) inset;">
+            <div style="position:relative;width:100%;height:100%;background:#FBF5E9;border-radius:36px;overflow:hidden;">
+              <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);width:74px;height:6px;background:rgba(0,0,0,.35);border-radius:99px;z-index:5;"></div>
+              <div style="position:relative;height:58%;overflow:hidden;">
+                <img src="assets/prewed.webp" alt="" style="width:100%;height:100%;object-fit:cover;">
+                <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(24,22,19,.05),rgba(24,22,19,.55));"></div>
+                
+              </div>
+              <div style="position:relative;padding:26px 22px 24px;text-align:center;">
+                <div style="font-size:9.5px;letter-spacing:.36em;color:#A0824A;margin-bottom:12px;">THE WEDDING OF</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:34px;line-height:1.05;color:#3A342A;">Anindya <span style="color:#B08D4F;font-style:italic;">&amp;</span> Rangga</div>
+                <div style="display:flex;align-items:center;justify-content:center;gap:9px;margin:14px 0 12px;">
+                  <span style="width:26px;height:1px;background:#C9AE7E;"></span>
+                  <span style="width:5px;height:5px;background:#B08D4F;transform:rotate(45deg);"></span>
+                  <span style="width:26px;height:1px;background:#C9AE7E;"></span>
+                </div>
+                <div style="font-size:11px;letter-spacing:.28em;color:#6E665A;">24 · 10 · 2026</div>
+                <div style="margin-top:18px;display:inline-block;font-size:9.5px;letter-spacing:.3em;color:#fff;background:#B08D4F;padding:8px 18px;border-radius:99px;">SAVE THE DATE</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KATALOG -->
+  <section id="katalog" style="scroll-margin-top:82px;padding:clamp(50px,7vh,90px) clamp(18px,4vw,44px) clamp(60px,8vh,100px);background:linear-gradient(#FBF6EC,#F6EEDE);">
+    <div style="max-width:1240px;margin:0 auto;">
+      <div data-reveal="" style="text-align:center;max-width:640px;margin:0 auto 14px;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px;">
+          <span style="width:30px;height:1px;background:#B08D4F;"></span>
+          <span style="font-size:12px;letter-spacing:.34em;color:#A0824A;">GALERI TEMPLATE</span>
+          <span style="width:30px;height:1px;background:#B08D4F;"></span>
+        </div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,5vw,56px);margin:0 0 16px;letter-spacing:-.5px;">Katalog Undangan</h2>
+        <p style="font-size:16px;line-height:1.7;color:#6E665A;font-weight:300;margin:0;">Kurasi desain undangan digital untuk setiap gaya perayaan. Ketuk kartu untuk melihat pratinjau demonya.</p>
+      </div>
+
+      <div ref="{{ barRef }}" data-reveal="" style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:36px 0 44px;">
+        <button data-chip="" data-cat="Semua" onClick="{{ onFilter }}" style="cursor:pointer;font-family:'Jost',sans-serif;padding:9px 20px;border-radius:999px;border:1px solid #B08D4F;background:#B08D4F;color:#fff;font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:all .3s;">Semua</button>
+        <button data-chip="" data-cat="Elegan" onClick="{{ onFilter }}" style="cursor:pointer;font-family:'Jost',sans-serif;padding:9px 20px;border-radius:999px;border:1px solid #D9C7A3;background:transparent;color:#6B6455;font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:all .3s;">Elegan</button>
+        <button data-chip="" data-cat="Minimalis" onClick="{{ onFilter }}" style="cursor:pointer;font-family:'Jost',sans-serif;padding:9px 20px;border-radius:999px;border:1px solid #D9C7A3;background:transparent;color:#6B6455;font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:all .3s;">Minimalis</button>
+        <button data-chip="" data-cat="Floral" onClick="{{ onFilter }}" style="cursor:pointer;font-family:'Jost',sans-serif;padding:9px 20px;border-radius:999px;border:1px solid #D9C7A3;background:transparent;color:#6B6455;font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:all .3s;">Floral</button>
+        <button data-chip="" data-cat="Islami" onClick="{{ onFilter }}" style="cursor:pointer;font-family:'Jost',sans-serif;padding:9px 20px;border-radius:999px;border:1px solid #D9C7A3;background:transparent;color:#6B6455;font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:all .3s;">Islami</button>
+        <button data-chip="" data-cat="Tradisional" onClick="{{ onFilter }}" style="cursor:pointer;font-family:'Jost',sans-serif;padding:9px 20px;border-radius:999px;border:1px solid #D9C7A3;background:transparent;color:#6B6455;font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:all .3s;">Tradisional</button>
+      </div>
+
+      <div ref="{{ gridRef }}" style="columns:300px;column-gap:26px;">
+
+        <!-- Card: Elegance Gold -->
+        <article data-card="" data-id="elegance-gold" data-cat="Elegan" data-reveal="" onClick="{{ openDemo }}" style="break-inside:avoid;margin-bottom:26px;display:inline-block;width:100%;cursor:pointer;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(44,40,34,.4);border:1px solid #EFE7D8;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;" style-hover="transform:translateY(-6px);box-shadow:0 30px 50px -24px rgba(44,40,34,.5);">
+          <div style="position:relative;background:#FBF5E9;overflow:hidden;">
+            <img src="assets/eg-frame.png" alt="Elegance Gold" style="width:100%;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05);">
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 16%;">
+              <div style="padding:26px 22px;border-radius:50%;background:radial-gradient(circle,rgba(251,245,233,.9) 42%,rgba(251,245,233,0) 74%);">
+                <div style="font-size:8.5px;letter-spacing:.4em;color:#8A6A32;margin-bottom:10px;">THE WEDDING OF</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1.02;color:#3A342A;">Anindya<br><span style="font-style:italic;color:#B08D4F;font-size:22px;">&amp;</span><br>Rangga</div>
+                <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 0 8px;"><span style="width:22px;height:1px;background:#C9AE7E;"></span><span style="width:4px;height:4px;background:#B08D4F;transform:rotate(45deg);"></span><span style="width:22px;height:1px;background:#C9AE7E;"></span></div>
+                <div style="font-size:9.5px;letter-spacing:.3em;color:#6E665A;">24 · 10 · 2026</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:16px 20px;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;margin:0 0 8px;">Elegance Gold</h3>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6A32;border:1px solid #E1D2B0;border-radius:99px;padding:4px 12px;">Elegan</span>
+              <span style="font-size:11.5px;letter-spacing:.12em;color:#B08D4F;">Lihat Demo →</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Sekar Jawa (image) -->
+        <article data-card="" data-id="sekar-jawa" data-cat="Tradisional" data-reveal="" onClick="{{ openDemo }}" style="break-inside:avoid;margin-bottom:26px;display:inline-block;width:100%;cursor:pointer;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(44,40,34,.4);border:1px solid #EFE7D8;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;" style-hover="transform:translateY(-6px);box-shadow:0 30px 50px -24px rgba(44,40,34,.5);">
+          <div style="height:460px;position:relative;overflow:hidden;">
+            <img src="assets/prewed.webp" alt="Sekar Jawa" style="width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.07);">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(58,46,34,.1) 40%,rgba(58,46,34,.72));"></div>
+            <div style="position:absolute;top:16px;left:16px;font-size:9.5px;letter-spacing:.26em;color:#F4ECD9;background:rgba(58,46,34,.5);backdrop-filter:blur(4px);padding:6px 12px;border-radius:99px;">TRADISI JAWA</div>
+            <div style="position:absolute;left:22px;right:22px;bottom:24px;text-align:center;color:#F7EFDD;">
+              <div style="font-size:9px;letter-spacing:.34em;color:#E6C88E;margin-bottom:8px;">DHAUP AGENG</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:32px;line-height:1.05;">Anindya &amp; Rangga</div>
+            </div>
+          </div>
+          <div style="padding:16px 20px;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;margin:0 0 8px;">Sekar Jawa</h3>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6A32;border:1px solid #E1D2B0;border-radius:99px;padding:4px 12px;">Tradisional</span>
+              <span style="font-size:11.5px;letter-spacing:.12em;color:#B08D4F;">Lihat Demo →</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Sakura Blossom -->
+        <article data-card="" data-id="sakura-blossom" data-cat="Floral" data-reveal="" onClick="{{ openDemo }}" style="break-inside:avoid;margin-bottom:26px;display:inline-block;width:100%;cursor:pointer;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(44,40,34,.4);border:1px solid #EFE7D8;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;" style-hover="transform:translateY(-6px);box-shadow:0 30px 50px -24px rgba(44,40,34,.5);">
+          <div style="height:420px;position:relative;overflow:hidden;background:#FCEEF2;">
+            <img src="assets/sakura-couple.png" alt="Sakura Blossom" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .8s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.07);">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(252,238,242,.12) 42%,rgba(120,58,74,.68));"></div>
+            <div style="position:absolute;left:22px;right:22px;bottom:24px;text-align:center;color:#FFF4F7;">
+              <div style="font-size:9px;letter-spacing:.34em;color:#F6D2DD;margin-bottom:8px;">THE WEDDING OF</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:32px;line-height:1.05;">Anindya <span style="font-style:italic;">&amp;</span> Rangga</div>
+              <div style="margin-top:10px;font-size:10px;letter-spacing:.26em;">24 OKTOBER 2026</div>
+            </div>
+          </div>
+          <div style="padding:16px 20px;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;margin:0 0 8px;">Sakura Blossom</h3>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6A32;border:1px solid #E1D2B0;border-radius:99px;padding:4px 12px;">Floral</span>
+              <span style="font-size:11.5px;letter-spacing:.12em;color:#B08D4F;">Lihat Demo →</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Royal Black -->
+        <article data-card="" data-id="royal-black" data-cat="Elegan" data-reveal="" onClick="{{ openDemo }}" style="break-inside:avoid;margin-bottom:26px;display:inline-block;width:100%;cursor:pointer;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(44,40,34,.4);border:1px solid #EFE7D8;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;" style-hover="transform:translateY(-6px);box-shadow:0 30px 50px -24px rgba(44,40,34,.5);">
+          <div style="height:440px;background:#1E1C19;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:34px;text-align:center;">
+            <div style="position:absolute;inset:16px;border:1px solid rgba(201,174,126,.4);"></div>
+            <div style="font-size:9.5px;letter-spacing:.38em;color:#C9AE7E;margin-bottom:16px;">THE WEDDING OF</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:40px;line-height:1.05;color:#F1E7D4;">Anindya<br><span style="font-style:italic;color:#C9AE7E;">and</span><br>Rangga</div>
+            <div style="display:flex;align-items:center;gap:9px;margin:18px 0 12px;"><span style="width:30px;height:1px;background:#8A754D;"></span><span style="width:5px;height:5px;background:#C9AE7E;transform:rotate(45deg);"></span><span style="width:30px;height:1px;background:#8A754D;"></span></div>
+            <div style="font-size:11px;letter-spacing:.3em;color:#B7A987;">24 · 10 · 2026</div>
+          </div>
+          <div style="padding:16px 20px;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;margin:0 0 8px;">Royal Black</h3>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6A32;border:1px solid #E1D2B0;border-radius:99px;padding:4px 12px;">Elegan</span>
+              <span style="font-size:11.5px;letter-spacing:.12em;color:#B08D4F;">Lihat Demo →</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Blush Peony (image) -->
+        <article data-card="" data-id="blush-peony" data-cat="Floral" data-reveal="" onClick="{{ openDemo }}" style="break-inside:avoid;margin-bottom:26px;display:inline-block;width:100%;cursor:pointer;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(44,40,34,.4);border:1px solid #EFE7D8;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;" style-hover="transform:translateY(-6px);box-shadow:0 30px 50px -24px rgba(44,40,34,.5);">
+          <div style="height:280px;overflow:hidden;position:relative;background:#FAF3EC;">
+            <img src="assets/bouquet.jpg" alt="Blush Peony" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform .8s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.07);">
+          </div>
+          <div style="background:#FAF3EC;padding:22px 26px 26px;text-align:center;">
+            <div style="font-size:9.5px;letter-spacing:.34em;color:#B07E52;margin-bottom:10px;">TO CELEBRATE THE WEDDING OF</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1.05;color:#4A3A32;">Anindya <span style="font-style:italic;color:#C08A5E;">&amp;</span> Rangga</div>
+          </div>
+          <div style="padding:16px 20px;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;margin:0 0 8px;">Blush Peony</h3>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6A32;border:1px solid #E1D2B0;border-radius:99px;padding:4px 12px;">Floral</span>
+              <span style="font-size:11.5px;letter-spacing:.12em;color:#B08D4F;">Lihat Demo →</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Nuansa Islami -->
+        <article data-card="" data-id="nuansa-islami" data-cat="Islami" data-reveal="" onClick="{{ openDemo }}" style="break-inside:avoid;margin-bottom:26px;display:inline-block;width:100%;cursor:pointer;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(44,40,34,.4);border:1px solid #EFE7D8;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;" style-hover="transform:translateY(-6px);box-shadow:0 30px 50px -24px rgba(44,40,34,.5);">
+          <div style="height:372px;background:#F1F3EC;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center;">
+            <div style="position:absolute;inset:16px;border:1px double rgba(156,138,84,.5);border-radius:120px 120px 8px 8px;"></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#9C8A54;margin-bottom:6px;">بِسْمِ اللّٰه</div>
+            <div style="font-size:9.5px;letter-spacing:.32em;color:#7C8A5E;margin-bottom:14px;">WALIMATUL 'URS</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:33px;line-height:1.08;color:#2E3A2E;">Anindya <span style="font-style:italic;color:#9C8A54;">&amp;</span> Rangga</div>
+            <div style="display:flex;align-items:center;gap:9px;margin:16px 0 10px;"><span style="width:26px;height:1px;background:#B7A971;"></span><span style="width:5px;height:5px;background:#9C8A54;transform:rotate(45deg);"></span><span style="width:26px;height:1px;background:#B7A971;"></span></div>
+            <div style="font-size:11px;letter-spacing:.26em;color:#5E6B4E;">24 RABI'UL AWWAL 1448 H</div>
+          </div>
+          <div style="padding:16px 20px;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;margin:0 0 8px;">Nuansa Islami</h3>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6A32;border:1px solid #E1D2B0;border-radius:99px;padding:4px 12px;">Islami</span>
+              <span style="font-size:11.5px;letter-spacing:.12em;color:#B08D4F;">Lihat Demo →</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Rustic Garden (image) -->
+        <article data-card="" data-id="rustic-garden" data-cat="Floral" data-reveal="" onClick="{{ openDemo }}" style="break-inside:avoid;margin-bottom:26px;display:inline-block;width:100%;cursor:pointer;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(44,40,34,.4);border:1px solid #EFE7D8;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;" style-hover="transform:translateY(-6px);box-shadow:0 30px 50px -24px rgba(44,40,34,.5);">
+          <div style="height:390px;background:#F4F1E6;position:relative;overflow:hidden;">
+            <img src="assets/floral-corner.png" alt="" style="position:absolute;top:-10px;right:-16px;width:64%;opacity:.96;transition:transform .8s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.06) rotate(-1deg);">
+            <div style="position:absolute;left:26px;bottom:30px;text-align:left;">
+              <div style="font-size:9.5px;letter-spacing:.3em;color:#7C845C;margin-bottom:10px;">SAVE OUR DATE</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:38px;line-height:1.02;color:#3D4230;">Anindya<br><span style="font-style:italic;color:#8A945F;">&amp;</span> Rangga</div>
+              <div style="margin-top:14px;font-size:11px;letter-spacing:.24em;color:#5E6349;">24 OKTOBER 2026</div>
+            </div>
+          </div>
+          <div style="padding:16px 20px;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;margin:0 0 8px;">Rustic Garden</h3>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6A32;border:1px solid #E1D2B0;border-radius:99px;padding:4px 12px;">Floral</span>
+              <span style="font-size:11.5px;letter-spacing:.12em;color:#B08D4F;">Lihat Demo →</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Serenity White -->
+        <article data-card="" data-id="serenity-white" data-cat="Minimalis" data-reveal="" onClick="{{ openDemo }}" style="break-inside:avoid;margin-bottom:26px;display:inline-block;width:100%;cursor:pointer;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(44,40,34,.4);border:1px solid #EFE7D8;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;" style-hover="transform:translateY(-6px);box-shadow:0 30px 50px -24px rgba(44,40,34,.5);">
+          <div style="height:340px;background:#FCFBF8;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:34px;text-align:center;">
+            <div style="width:38px;height:1px;background:#C9BFAC;margin-bottom:26px;"></div>
+            <div style="font-size:9px;letter-spacing:.4em;color:#A99B82;margin-bottom:16px;">THE WEDDING OF</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:32px;line-height:1.3;color:#33302B;letter-spacing:1px;">Anindya &amp; Rangga</div>
+            <div style="margin-top:16px;font-size:10.5px;letter-spacing:.3em;color:#8B8478;">10 · 24 · 26</div>
+            <div style="width:38px;height:1px;background:#C9BFAC;margin-top:26px;"></div>
+          </div>
+          <div style="padding:16px 20px;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;margin:0 0 8px;">Serenity White</h3>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6A32;border:1px solid #E1D2B0;border-radius:99px;padding:4px 12px;">Minimalis</span>
+              <span style="font-size:11.5px;letter-spacing:.12em;color:#B08D4F;">Lihat Demo →</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CARA PEMESANAN -->
+  <section id="cara" style="scroll-margin-top:82px;padding:clamp(60px,9vh,110px) clamp(18px,4vw,44px);background:#FBF6EC;">
+    <div style="max-width:1120px;margin:0 auto;">
+      <div data-reveal="" style="text-align:center;max-width:600px;margin:0 auto 56px;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px;">
+          <span style="width:30px;height:1px;background:#B08D4F;"></span>
+          <span style="font-size:12px;letter-spacing:.34em;color:#A0824A;">LANGKAH MUDAH</span>
+          <span style="width:30px;height:1px;background:#B08D4F;"></span>
+        </div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,5vw,56px);margin:0;letter-spacing:-.5px;">Cara Pemesanan</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(20px,3vw,40px);">
+        <div data-reveal="" style="text-align:center;padding:20px;">
+          <div style="width:96px;height:96px;margin:0 auto 24px;border-radius:50%;border:1px solid #D9C7A3;display:flex;align-items:center;justify-content:center;position:relative;background:#fff;box-shadow:0 14px 30px -18px rgba(176,141,79,.5);">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-style:italic;color:#B08D4F;">01</span>
+          </div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;margin:0 0 12px;">Pilih Template Favorit</h3>
+          <p style="font-size:15px;line-height:1.7;color:#6E665A;font-weight:300;margin:0;">Telusuri katalog dan temukan desain yang paling mewakili gaya serta kisah hari bahagia Anda.</p>
+        </div>
+        <div data-reveal="" style="text-align:center;padding:20px;">
+          <div style="width:96px;height:96px;margin:0 auto 24px;border-radius:50%;border:1px solid #D9C7A3;display:flex;align-items:center;justify-content:center;position:relative;background:#fff;box-shadow:0 14px 30px -18px rgba(176,141,79,.5);">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-style:italic;color:#B08D4F;">02</span>
+          </div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;margin:0 0 12px;">Lihat Demo Undangan</h3>
+          <p style="font-size:15px;line-height:1.7;color:#6E665A;font-weight:300;margin:0;">Buka pratinjau interaktif untuk merasakan tampilan, alur, dan detail undangan secara langsung.</p>
+        </div>
+        <div data-reveal="" style="text-align:center;padding:20px;">
+          <div style="width:96px;height:96px;margin:0 auto 24px;border-radius:50%;border:1px solid #D9C7A3;display:flex;align-items:center;justify-content:center;position:relative;background:#fff;box-shadow:0 14px 30px -18px rgba(176,141,79,.5);">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-style:italic;color:#B08D4F;">03</span>
+          </div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;margin:0 0 12px;">Hubungi Kami</h3>
+          <p style="font-size:15px;line-height:1.7;color:#6E665A;font-weight:300;margin:0;">Sampaikan template pilihan Anda melalui WhatsApp, dan tim kami akan menyiapkannya untuk Anda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENTANG KAMI -->
+  <section id="tentang" style="scroll-margin-top:82px;padding:clamp(60px,9vh,110px) clamp(18px,4vw,44px);background:linear-gradient(#F6EEDE,#FBF6EC);">
+    <div style="max-width:1160px;margin:0 auto;display:flex;align-items:center;gap:clamp(30px,5vw,70px);flex-wrap:wrap;">
+      <div data-reveal="" style="flex:1 1 300px;min-width:280px;position:relative;">
+        <div style="border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(44,40,34,.55);border:6px solid #fff;">
+          <img src="assets/prewed.webp" alt="Momen prewedding" style="width:100%;display:block;">
+        </div>
+        <img src="assets/floral-corner.png" alt="" style="position:absolute;bottom:-30px;right:-24px;width:150px;transform:scaleX(-1);filter:drop-shadow(0 12px 20px rgba(44,40,34,.2));">
+      </div>
+      <div data-reveal="" style="flex:1 1 380px;min-width:300px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <span style="width:30px;height:1px;background:#B08D4F;"></span>
+          <span style="font-size:12px;letter-spacing:.34em;color:#A0824A;">TENTANG KAMI</span>
+        </div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.1;margin:0 0 24px;letter-spacing:-.5px;">Undangan yang <span style="font-style:italic;color:#B08D4F;">elegan</span>, praktis, dan mudah dibagikan</h2>
+        <p style="font-size:16px;line-height:1.8;color:#6E665A;font-weight:300;margin:0 0 18px;">Kirana menghadirkan layanan pembuatan undangan digital yang dirancang dengan cita rasa estetika tinggi. Setiap template kami olah dengan detail — mulai dari tipografi, komposisi warna, hingga alur cerita — agar undangan Anda terasa personal dan berkesan.</p>
+        <p style="font-size:16px;line-height:1.8;color:#6E665A;font-weight:300;margin:0;">Cukup pilih desain favorit, lihat demonya, lalu bagikan tautan undangan Anda kepada keluarga dan sahabat kapan saja, di mana saja.</p>
+        <div style="display:flex;gap:38px;flex-wrap:wrap;margin-top:34px;">
+          <div><div style="font-family:'Cormorant Garamond',serif;font-size:40px;color:#B08D4F;line-height:1;">50+</div><div style="font-size:12px;letter-spacing:.16em;color:#8B8478;margin-top:6px;text-transform:uppercase;">Pilihan Desain</div></div>
+          <div><div style="font-family:'Cormorant Garamond',serif;font-size:40px;color:#B08D4F;line-height:1;">100%</div><div style="font-size:12px;letter-spacing:.16em;color:#8B8478;margin-top:6px;text-transform:uppercase;">Dapat Dikustomisasi</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / KONTAK -->
+  <footer id="kontak" style="scroll-margin-top:82px;background:#1E1C19;color:#E9E0CF;padding:clamp(56px,8vh,90px) clamp(18px,4vw,44px) 34px;position:relative;overflow:hidden;">
+    <div style="position:absolute;bottom:-70px;left:-60px;width:min(38vw,420px);opacity:.09;pointer-events:none;">
+      <img src="assets/floral-corner.png" alt="" style="width:100%;">
+    </div>
+    <div data-reveal="" style="position:relative;max-width:900px;margin:0 auto 56px;text-align:center;">
+      <div style="font-size:12px;letter-spacing:.34em;color:#C9AE7E;margin-bottom:18px;">MARI TERHUBUNG</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.6vw,52px);margin:0 0 22px;line-height:1.1;">Siap mewujudkan undangan impian Anda?</h2>
+      <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#B08D4F;color:#1E1C19;padding:16px 36px;border-radius:999px;text-decoration:none;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;transition:transform .35s;" style-hover="transform:translateY(-3px);">Hubungi via WhatsApp</a>
+    </div>
+    <div style="position:relative;max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap;border-top:1px solid rgba(201,174,126,.22);padding-top:38px;">
+      <div style="flex:1 1 260px;">
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:16px;">
+          <span style="width:10px;height:10px;background:#B08D4F;transform:rotate(45deg);display:inline-block;"></span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;">Kirana</span>
+        </div>
+        <p style="font-size:14px;line-height:1.7;color:#A79E8C;font-weight:300;max-width:280px;margin:0;">Undangan digital elegan untuk merayakan momen paling berharga dalam hidup Anda.</p>
+      </div>
+      <div style="flex:0 1 auto;">
+        <div style="font-size:11px;letter-spacing:.24em;color:#C9AE7E;margin-bottom:16px;text-transform:uppercase;">Kontak</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;">
+          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" style="color:#E9E0CF;text-decoration:none;transition:color .3s;" style-hover="color:#C9AE7E;">WhatsApp · +62 812 3456 7890</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" style="color:#E9E0CF;text-decoration:none;transition:color .3s;" style-hover="color:#C9AE7E;">Instagram · @kirana.undangan</a>
+          <a href="mailto:halo@kirana.id" style="color:#E9E0CF;text-decoration:none;transition:color .3s;" style-hover="color:#C9AE7E;">Email · halo@kirana.id</a>
+        </div>
+      </div>
+      <div style="flex:0 1 auto;">
+        <div style="font-size:11px;letter-spacing:.24em;color:#C9AE7E;margin-bottom:16px;text-transform:uppercase;">Navigasi</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;">
+          <a href="#beranda" style="color:#E9E0CF;text-decoration:none;transition:color .3s;" style-hover="color:#C9AE7E;">Beranda</a>
+          <a href="#katalog" style="color:#E9E0CF;text-decoration:none;transition:color .3s;" style-hover="color:#C9AE7E;">Katalog Undangan</a>
+          <a href="#cara" style="color:#E9E0CF;text-decoration:none;transition:color .3s;" style-hover="color:#C9AE7E;">Cara Pemesanan</a>
+          <a href="#tentang" style="color:#E9E0CF;text-decoration:none;transition:color .3s;" style-hover="color:#C9AE7E;">Tentang Kami</a>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;max-width:1160px;margin:38px auto 0;text-align:center;font-size:12px;letter-spacing:.1em;color:#7C7566;">© 2026 Kirana Undangan Digital. Seluruh hak cipta dilindungi.</div>
+  </footer>
+
+  <!-- DEMO MODAL -->
+  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeModal }}" style="position:fixed;inset:0;z-index:200;background:rgba(28,25,21,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:clamp(14px,3vw,40px);animation:fadeUp .35s ease;">
+      <div onClick="{{ stop }}" style="position:relative;width:min(420px,100%);height:min(86vh,880px);border-radius:40px;overflow:hidden;background:#181613;padding:12px;box-shadow:0 50px 100px -30px rgba(0,0,0,.7);">
+        <button onClick="{{ closeModal }}" style="position:absolute;top:22px;right:22px;z-index:10;width:38px;height:38px;border-radius:50%;border:none;background:rgba(24,22,19,.55);color:#fff;font-size:20px;cursor:pointer;backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;line-height:1;">×</button>
+        <div style="width:100%;height:100%;border-radius:30px;overflow-y:auto;background:{{ cur.bg }};">
+
+          <!-- ===================== ELEGANCE GOLD ===================== -->
+          <sc-if value="{{ cur.isElegance }}" hint-placeholder-val="{{ false }}">
+
+            <!-- Cover: ornate gold frame -->
+            <div style="position:relative;background:#FBF5E9;">
+              <img src="assets/eg-frame.png" alt="" style="width:100%;display:block;">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 15%;">
+                <div style="padding:34px 26px;border-radius:50%;background:radial-gradient(circle,rgba(251,245,233,.9) 42%,rgba(251,245,233,0) 74%);">
+                  <div style="font-size:9.5px;letter-spacing:.42em;color:#8A6A32;margin-bottom:14px;">THE WEDDING OF</div>
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:40px;line-height:1.02;color:#3A342A;">Anindya<br><span style="font-style:italic;color:#B08D4F;font-size:30px;">&amp;</span><br>Rangga</div>
+                  <div style="display:flex;align-items:center;justify-content:center;gap:9px;margin:16px 0 10px;"><span style="width:26px;height:1px;background:#C9AE7E;"></span><span style="width:5px;height:5px;background:#B08D4F;transform:rotate(45deg);"></span><span style="width:26px;height:1px;background:#C9AE7E;"></span></div>
+                  <div style="font-size:10.5px;letter-spacing:.3em;color:#6E665A;">24 · 10 · 2026</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Greeting -->
+            <div style="padding:56px 34px 48px;text-align:center;background:#FBF5E9;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#9A7B44;line-height:1.6;">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+              <div style="width:52px;height:1px;background:#C9AE7E;margin:22px auto;"></div>
+              <div style="font-size:14px;letter-spacing:.03em;color:#5A5348;line-height:1.95;font-weight:300;">Assalamu'alaikum Warahmatullahi Wabarakatuh<br><br>Dengan memohon rahmat dan ridha Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</div>
+            </div>
+
+            <!-- Mempelai -->
+            <div style="padding:8px 34px 56px;text-align:center;background:#FBF5E9;">
+              <div style="width:96px;height:96px;margin:0 auto 18px;border-radius:50%;border:1px solid #C9AE7E;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:44px;font-style:italic;color:#B08D4F;">A</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:#3A342A;line-height:1.1;">Anindya Larasati</div>
+              <div style="font-size:12.5px;color:#7A7263;line-height:1.8;margin-top:10px;font-weight:300;">Putri kedua dari<br>Bapak H. Suryanto &amp; Ibu Hj. Wulandari</div>
+              <a href="https://instagram.com" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-size:11px;letter-spacing:.14em;color:#8A6A32;border:1px solid #E1D2B0;border-radius:999px;padding:6px 16px;text-decoration:none;">@anindya.lrs</a>
+
+              <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:40px;color:#B08D4F;margin:26px 0;">&amp;</div>
+
+              <div style="width:96px;height:96px;margin:0 auto 18px;border-radius:50%;border:1px solid #C9AE7E;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:44px;font-style:italic;color:#B08D4F;">R</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:#3A342A;line-height:1.1;">Rangga Aditya Pratama</div>
+              <div style="font-size:12.5px;color:#7A7263;line-height:1.8;margin-top:10px;font-weight:300;">Putra pertama dari<br>Bapak Ir. Bambang Santoso &amp; Ibu Retno Dewanti</div>
+              <a href="https://instagram.com" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-size:11px;letter-spacing:.14em;color:#8A6A32;border:1px solid #E1D2B0;border-radius:999px;padding:6px 16px;text-decoration:none;">@rangga.adty</a>
+            </div>
+
+            <!-- Prewedding hero -->
+            <div style="padding:48px 30px;background:#F4EBD8;text-align:center;">
+              <div style="background:#fff;padding:10px;border:1px solid #E1D2B0;box-shadow:0 20px 44px -24px rgba(58,46,34,.5);">
+                <img src="assets/eg-couple.png" alt="Prewedding Anindya & Rangga" style="width:100%;display:block;">
+              </div>
+              <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:#8A6A32;margin-top:22px;line-height:1.5;">"Dua insan, satu cinta,<br>menuju satu tujuan."</div>
+            </div>
+
+            <!-- Countdown -->
+            <div style="padding:56px 30px;text-align:center;background:#FBF5E9;">
+              <div style="font-size:10px;letter-spacing:.34em;color:#A0824A;margin-bottom:10px;">MENGHITUNG HARI</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:34px;color:#3A342A;margin-bottom:6px;">Save The Date</div>
+              <div style="font-size:12.5px;letter-spacing:.14em;color:#7A7263;margin-bottom:26px;">Sabtu, 24 Oktober 2026</div>
+              <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+                <div style="min-width:64px;border:1px solid #E1D2B0;border-radius:14px;padding:14px 8px;background:#fff;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#B08D4F;line-height:1;">{{ cd.d }}</div><div style="font-size:9.5px;letter-spacing:.18em;color:#8B8478;margin-top:6px;">HARI</div></div>
+                <div style="min-width:64px;border:1px solid #E1D2B0;border-radius:14px;padding:14px 8px;background:#fff;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#B08D4F;line-height:1;">{{ cd.h }}</div><div style="font-size:9.5px;letter-spacing:.18em;color:#8B8478;margin-top:6px;">JAM</div></div>
+                <div style="min-width:64px;border:1px solid #E1D2B0;border-radius:14px;padding:14px 8px;background:#fff;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#B08D4F;line-height:1;">{{ cd.m }}</div><div style="font-size:9.5px;letter-spacing:.18em;color:#8B8478;margin-top:6px;">MENIT</div></div>
+                <div style="min-width:64px;border:1px solid #E1D2B0;border-radius:14px;padding:14px 8px;background:#fff;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#B08D4F;line-height:1;">{{ cd.s }}</div><div style="font-size:9.5px;letter-spacing:.18em;color:#8B8478;margin-top:6px;">DETIK</div></div>
+              </div>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Anindya+%26+Rangga&dates=20261024T010000Z/20261024T070000Z&location=Pendopo+Kusuma+Yogyakarta" target="_blank" rel="noopener" style="display:inline-block;margin-top:28px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:#B08D4F;border-radius:999px;padding:13px 28px;text-decoration:none;">Simpan ke Kalender</a>
+            </div>
+
+            <!-- Acara -->
+            <div style="padding:56px 30px;background:#F4EBD8;">
+              <div style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:30px;color:#3A342A;margin-bottom:28px;">Rangkaian Acara</div>
+              <div style="display:flex;flex-direction:column;gap:20px;">
+                <div style="border:1px solid #D9C08A;border-radius:16px;padding:28px 22px;text-align:center;background:#FBF5E9;">
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:25px;color:#B08D4F;margin-bottom:12px;">Akad Nikah</div>
+                  <div style="font-size:13px;letter-spacing:.03em;color:#5A5348;line-height:1.95;">Sabtu, 24 Oktober 2026<br>08.00 — 10.00 WIB<br>Pendopo Kusuma, Yogyakarta</div>
+                  <a href="https://maps.google.com" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;font-size:11px;letter-spacing:.14em;color:#8A6A32;border:1px solid #C9AE7E;border-radius:999px;padding:8px 18px;text-decoration:none;">Lihat Lokasi</a>
+                </div>
+                <div style="border:1px solid #D9C08A;border-radius:16px;padding:28px 22px;text-align:center;background:#FBF5E9;">
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:25px;color:#B08D4F;margin-bottom:12px;">Resepsi</div>
+                  <div style="font-size:13px;letter-spacing:.03em;color:#5A5348;line-height:1.95;">Sabtu, 24 Oktober 2026<br>11.00 — 14.00 WIB<br>Pendopo Kusuma, Yogyakarta</div>
+                  <a href="https://maps.google.com" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;font-size:11px;letter-spacing:.14em;color:#8A6A32;border:1px solid #C9AE7E;border-radius:999px;padding:8px 18px;text-decoration:none;">Lihat Lokasi</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Galeri -->
+            <div style="padding:56px 30px;text-align:center;background:#FBF5E9;">
+              <div style="font-size:10px;letter-spacing:.34em;color:#A0824A;margin-bottom:8px;">MOMEN KAMI</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#3A342A;margin-bottom:24px;">Galeri</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                <div style="aspect-ratio:1;overflow:hidden;border-radius:10px;"><img src="assets/eg-couple.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;"></div>
+                <div style="aspect-ratio:1;overflow:hidden;border-radius:10px;"><img src="assets/eg-couple.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 55%;"></div>
+                <div style="aspect-ratio:1;overflow:hidden;border-radius:10px;"><img src="assets/eg-couple.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:70% 30%;"></div>
+                <div style="aspect-ratio:1;overflow:hidden;border-radius:10px;"><img src="assets/eg-couple.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:30% 40%;"></div>
+              </div>
+            </div>
+
+            <!-- RSVP / Ucapan -->
+            <div style="padding:56px 30px;background:#F4EBD8;">
+              <div style="text-align:center;font-size:10px;letter-spacing:.34em;color:#A0824A;margin-bottom:8px;">DOA &amp; RESTU</div>
+              <div style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:30px;color:#3A342A;margin-bottom:24px;">Konfirmasi &amp; Ucapan</div>
+              <form onSubmit="{{ submitWish }}" style="display:flex;flex-direction:column;gap:12px;">
+                <input ref="{{ nameRef }}" type="text" placeholder="Nama Anda" style="font-family:'Jost',sans-serif;font-size:14px;color:#3A342A;background:#FBF5E9;border:1px solid #E1D2B0;border-radius:10px;padding:13px 16px;outline:none;">
+                <div style="display:flex;gap:8px;">
+                  <button type="button" data-attend data-val="Hadir" onClick="{{ setAttend }}" style="flex:1;cursor:pointer;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;border:1px solid #B08D4F;background:#B08D4F;color:#fff;border-radius:10px;padding:11px 4px;transition:all .25s;">Hadir</button>
+                  <button type="button" data-attend data-val="Ragu" onClick="{{ setAttend }}" style="flex:1;cursor:pointer;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;border:1px solid #E1D2B0;background:transparent;color:#8A6A32;border-radius:10px;padding:11px 4px;transition:all .25s;">Ragu</button>
+                  <button type="button" data-attend data-val="Tidak Hadir" onClick="{{ setAttend }}" style="flex:1;cursor:pointer;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;border:1px solid #E1D2B0;background:transparent;color:#8A6A32;border-radius:10px;padding:11px 4px;transition:all .25s;">Tidak</button>
+                </div>
+                <textarea ref="{{ msgRef }}" rows="3" placeholder="Tulis ucapan &amp; doa..." style="font-family:'Jost',sans-serif;font-size:14px;color:#3A342A;background:#FBF5E9;border:1px solid #E1D2B0;border-radius:10px;padding:13px 16px;outline:none;resize:none;"></textarea>
+                <button type="submit" style="cursor:pointer;font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:#3A342A;border:none;border-radius:999px;padding:14px;">Kirim Ucapan</button>
+              </form>
+              <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;max-height:260px;overflow-y:auto;">
+                <sc-for list="{{ wishes }}" as="w" hint-placeholder-count="2">
+                  <div style="background:#FBF5E9;border:1px solid #EFE1C8;border-radius:12px;padding:14px 16px;text-align:left;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;">
+                      <span style="font-family:'Cormorant Garamond',serif;font-size:17px;color:#3A342A;">{{ w.name }}</span>
+                      <span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#8A6A32;border:1px solid #E1D2B0;border-radius:999px;padding:3px 9px;">{{ w.attend }}</span>
+                    </div>
+                    <div style="font-size:13px;color:#6E665A;line-height:1.6;font-weight:300;">{{ w.msg }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <!-- Amplop Digital -->
+            <div style="padding:56px 30px;text-align:center;background:#FBF5E9;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#3A342A;margin-bottom:10px;">Amplop Digital</div>
+              <div style="font-size:13px;color:#7A7263;line-height:1.8;font-weight:300;max-width:300px;margin:0 auto 24px;">Doa restu Anda merupakan karunia yang berharga. Jika berkenan memberi tanda kasih, dapat melalui:</div>
+              <div style="border:1px solid #E1D2B0;border-radius:16px;padding:24px;background:#fff;max-width:300px;margin:0 auto;">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#B08D4F;margin-bottom:6px;">Bank Mandiri</div>
+                <div style="font-size:20px;letter-spacing:.14em;color:#3A342A;">1370 0098 7654 3</div>
+                <div style="font-size:12.5px;color:#7A7263;margin-top:6px;">a.n. Anindya Larasati</div>
+              </div>
+            </div>
+
+            <!-- Penutup -->
+            <div style="padding:60px 34px;text-align:center;background:#F4EBD8;">
+              <div style="font-size:13.5px;color:#5A5348;line-height:1.95;font-weight:300;max-width:300px;margin:0 auto 22px;">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</div>
+              <div style="font-size:12.5px;letter-spacing:.1em;color:#8A6A32;margin-bottom:22px;">Wassalamu'alaikum Warahmatullahi Wabarakatuh</div>
+              <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px;"><span style="width:30px;height:1px;background:#C9AE7E;"></span><span style="width:6px;height:6px;background:#B08D4F;transform:rotate(45deg);"></span><span style="width:30px;height:1px;background:#C9AE7E;"></span></div>
+              <div style="font-size:11px;letter-spacing:.2em;color:#7A7263;margin-bottom:8px;">KAMI YANG BERBAHAGIA</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:38px;color:#3A342A;">Anindya &amp; Rangga</div>
+            </div>
+
+            <div style="padding:16px;text-align:center;background:#B08D4F;color:#fff;font-size:11px;letter-spacing:.2em;">PRATINJAU DEMO — TEMPLATE ELEGANCE GOLD</div>
+
+          </sc-if>
+
+          <!-- ===================== SAKURA BLOSSOM ===================== -->
+          <sc-if value="{{ cur.isSakura }}" hint-placeholder-val="{{ false }}">
+
+            <!-- Cover: title-top + arched photo + petals + sakura -->
+            <div style="position:relative;overflow:hidden;background:linear-gradient(#FBE1EB 0%,#FCEEF2 62%);padding:48px 26px 46px;text-align:center;">
+              <span style="position:absolute;top:0;left:5%;width:11px;height:13px;background:#F3C5D3;border-radius:80% 0 55% 50%/55% 0 80% 50%;animation:petalFall 9s linear infinite;"></span>
+              <span style="position:absolute;top:0;left:16%;width:9px;height:11px;background:#F6D2DD;border-radius:80% 0 55% 50%/55% 0 80% 50%;animation:petalFall 11s linear infinite 1.2s;"></span>
+              <span style="position:absolute;top:0;left:30%;width:12px;height:14px;background:#EFB9CB;border-radius:80% 0 55% 50%/55% 0 80% 50%;animation:petalFall 8s linear infinite .6s;"></span>
+              <span style="position:absolute;top:0;left:44%;width:9px;height:11px;background:#F6D2DD;border-radius:80% 0 55% 50%/55% 0 80% 50%;animation:petalFall 12s linear infinite 2.6s;"></span>
+              <span style="position:absolute;top:0;left:58%;width:11px;height:13px;background:#F3C5D3;border-radius:80% 0 55% 50%/55% 0 80% 50%;animation:petalFall 9.5s linear infinite 1.8s;"></span>
+              <span style="position:absolute;top:0;left:72%;width:10px;height:12px;background:#EFB9CB;border-radius:80% 0 55% 50%/55% 0 80% 50%;animation:petalFall 10.5s linear infinite .3s;"></span>
+              <span style="position:absolute;top:0;left:86%;width:9px;height:11px;background:#F6D2DD;border-radius:80% 0 55% 50%/55% 0 80% 50%;animation:petalFall 11.5s linear infinite 3.2s;"></span>
+              <span style="position:absolute;top:0;left:95%;width:11px;height:13px;background:#F3C5D3;border-radius:80% 0 55% 50%/55% 0 80% 50%;animation:petalFall 8.5s linear infinite 2s;"></span>
+
+              <!-- corner sakura clusters -->
+              <div style="position:absolute;top:14px;left:14px;opacity:.9;"><span style="position:relative;display:inline-block;width:34px;height:34px;"><span style="position:absolute;left:10px;top:0;width:13px;height:18px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(0deg);"></span><span style="position:absolute;left:10px;top:0;width:13px;height:18px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(72deg);"></span><span style="position:absolute;left:10px;top:0;width:13px;height:18px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(144deg);"></span><span style="position:absolute;left:10px;top:0;width:13px;height:18px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(216deg);"></span><span style="position:absolute;left:10px;top:0;width:13px;height:18px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(288deg);"></span><span style="position:absolute;left:12px;top:12px;width:9px;height:9px;border-radius:50%;background:#F4C64E;"></span></span></div>
+              <div style="position:absolute;top:14px;right:14px;opacity:.9;transform:scaleX(-1);"><span style="position:relative;display:inline-block;width:34px;height:34px;"><span style="position:absolute;left:10px;top:0;width:13px;height:18px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(0deg);"></span><span style="position:absolute;left:10px;top:0;width:13px;height:18px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(72deg);"></span><span style="position:absolute;left:10px;top:0;width:13px;height:18px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(144deg);"></span><span style="position:absolute;left:10px;top:0;width:13px;height:18px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(216deg);"></span><span style="position:absolute;left:10px;top:0;width:13px;height:18px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(288deg);"></span><span style="position:absolute;left:12px;top:12px;width:9px;height:9px;border-radius:50%;background:#F4C64E;"></span></span></div>
+
+              <div style="position:relative;font-size:10px;letter-spacing:.4em;color:#B96A85;margin-bottom:14px;">THE WEDDING OF</div>
+              <div style="position:relative;font-family:'Cormorant Garamond',serif;font-size:44px;line-height:1.02;color:#5A3B44;">Anindya <span style="font-style:italic;color:#C96A88;">&amp;</span> Rangga</div>
+              <div style="position:relative;display:flex;align-items:center;justify-content:center;gap:14px;margin:16px 0;"><span style="width:40px;height:1px;background:linear-gradient(to right,transparent,#E6B3C4);"></span><span style="position:relative;display:inline-block;width:26px;height:26px;flex:none;"><span style="position:absolute;left:7px;top:0;width:11px;height:14px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(0deg);"></span><span style="position:absolute;left:7px;top:0;width:11px;height:14px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(72deg);"></span><span style="position:absolute;left:7px;top:0;width:11px;height:14px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(144deg);"></span><span style="position:absolute;left:7px;top:0;width:11px;height:14px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(216deg);"></span><span style="position:absolute;left:7px;top:0;width:11px;height:14px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(288deg);"></span><span style="position:absolute;left:9px;top:9px;width:7px;height:7px;border-radius:50%;background:#F4C64E;"></span></span><span style="width:40px;height:1px;background:linear-gradient(to left,transparent,#E6B3C4);"></span></div>
+              <div style="position:relative;font-size:11px;letter-spacing:.3em;color:#8A6B73;margin-bottom:30px;">SABTU · 24 OKTOBER 2026</div>
+              <div style="position:relative;border-radius:190px 190px 24px 24px;overflow:hidden;border:5px solid #fff;box-shadow:0 26px 52px -24px rgba(120,58,74,.55);">
+                <img src="assets/sakura-couple.png" alt="Anindya & Rangga" style="width:100%;display:block;">
+              </div>
+            </div>
+
+            <!-- Greeting -->
+            <div style="padding:56px 34px 48px;text-align:center;background:#FCEEF2;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#A84E6E;line-height:1.6;">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+              <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin:22px 0;"><span style="width:40px;height:1px;background:linear-gradient(to right,transparent,#E6B3C4);"></span><span style="position:relative;display:inline-block;width:24px;height:24px;flex:none;"><span style="position:absolute;left:6px;top:0;width:10px;height:13px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(0deg);"></span><span style="position:absolute;left:6px;top:0;width:10px;height:13px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(72deg);"></span><span style="position:absolute;left:6px;top:0;width:10px;height:13px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(144deg);"></span><span style="position:absolute;left:6px;top:0;width:10px;height:13px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(216deg);"></span><span style="position:absolute;left:6px;top:0;width:10px;height:13px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(288deg);"></span><span style="position:absolute;left:8px;top:8px;width:7px;height:7px;border-radius:50%;background:#F4C64E;"></span></span><span style="width:40px;height:1px;background:linear-gradient(to left,transparent,#E6B3C4);"></span></div>
+              <div style="font-size:14px;letter-spacing:.03em;color:#6B4C54;line-height:1.95;font-weight:300;">Assalamu'alaikum Warahmatullahi Wabarakatuh<br><br>Dengan memohon rahmat dan ridha Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</div>
+            </div>
+
+            <!-- Mempelai: dua foto arch -->
+            <div style="padding:8px 26px 56px;background:#FCEEF2;">
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <div style="flex:1;text-align:center;">
+                  <div style="border-radius:110px 110px 16px 16px;overflow:hidden;border:4px solid #fff;box-shadow:0 16px 34px -20px rgba(120,58,74,.5);height:190px;"><img src="assets/sakura-couple.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:22% 24%;"></div>
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:23px;color:#5A3B44;margin-top:14px;line-height:1.15;">Anindya Larasati</div>
+                  <div style="font-size:11.5px;color:#8A6B73;line-height:1.7;margin-top:8px;font-weight:300;">Putri kedua dari<br>Bpk. H. Suryanto &amp;<br>Ibu Hj. Wulandari</div>
+                  <a href="https://instagram.com" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;font-size:10.5px;letter-spacing:.12em;color:#A84E6E;border:1px solid #EFD3DD;border-radius:999px;padding:5px 13px;text-decoration:none;">@anindya.lrs</a>
+                </div>
+                <div style="flex:1;text-align:center;">
+                  <div style="border-radius:110px 110px 16px 16px;overflow:hidden;border:4px solid #fff;box-shadow:0 16px 34px -20px rgba(120,58,74,.5);height:190px;"><img src="assets/sakura-couple.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:80% 20%;"></div>
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:23px;color:#5A3B44;margin-top:14px;line-height:1.15;">Rangga Aditya</div>
+                  <div style="font-size:11.5px;color:#8A6B73;line-height:1.7;margin-top:8px;font-weight:300;">Putra pertama dari<br>Bpk. Ir. Bambang S. &amp;<br>Ibu Retno Dewanti</div>
+                  <a href="https://instagram.com" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;font-size:10.5px;letter-spacing:.12em;color:#A84E6E;border:1px solid #EFD3DD;border-radius:999px;padding:5px 13px;text-decoration:none;">@rangga.adty</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Prewedding hero: arched frame -->
+            <div style="padding:48px 30px;background:#F7E1E8;text-align:center;">
+              <div style="background:#fff;padding:8px;border-radius:180px 180px 22px 22px;box-shadow:0 22px 46px -24px rgba(120,58,74,.55);">
+                <div style="border-radius:174px 174px 16px 16px;overflow:hidden;"><img src="assets/sakura-couple.png" alt="Prewedding Anindya & Rangga" style="width:100%;display:block;"></div>
+              </div>
+              <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:#A84E6E;margin-top:24px;line-height:1.5;">"Mekar bersama,<br>seindah bunga sakura."</div>
+            </div>
+
+            <!-- Kisah Cinta (khas Sakura) -->
+            <div style="padding:56px 30px;background:#FCEEF2;">
+              <div style="text-align:center;font-size:10px;letter-spacing:.34em;color:#C96A88;margin-bottom:8px;">PERJALANAN KAMI</div>
+              <div style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:30px;color:#5A3B44;margin-bottom:30px;">Kisah Cinta</div>
+              <div style="position:relative;display:flex;flex-direction:column;gap:26px;">
+                <div style="position:absolute;left:16px;top:20px;bottom:20px;width:1px;background:repeating-linear-gradient(#E6B3C4 0 4px,transparent 4px 10px);"></div>
+                <div style="position:relative;display:flex;gap:16px;align-items:flex-start;">
+                  <span style="position:relative;display:inline-block;width:33px;height:33px;flex:none;background:#FCEEF2;"><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(0deg);"></span><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(72deg);"></span><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(144deg);"></span><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(216deg);"></span><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(288deg);"></span><span style="position:absolute;left:12px;top:12px;width:8px;height:8px;border-radius:50%;background:#F4C64E;"></span></span>
+                  <div style="text-align:left;"><div style="font-size:11px;letter-spacing:.16em;color:#C96A88;margin-bottom:3px;">2019</div><div style="font-family:'Cormorant Garamond',serif;font-size:21px;color:#5A3B44;">Pertama Bertemu</div><div style="font-size:12.5px;color:#8A6B73;line-height:1.7;margin-top:4px;font-weight:300;">Dipertemukan di bangku kuliah, dua hati mulai saling mengenal.</div></div>
+                </div>
+                <div style="position:relative;display:flex;gap:16px;align-items:flex-start;">
+                  <span style="position:relative;display:inline-block;width:33px;height:33px;flex:none;background:#FCEEF2;"><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(0deg);"></span><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(72deg);"></span><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(144deg);"></span><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(216deg);"></span><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(288deg);"></span><span style="position:absolute;left:12px;top:12px;width:8px;height:8px;border-radius:50%;background:#F4C64E;"></span></span>
+                  <div style="text-align:left;"><div style="font-size:11px;letter-spacing:.16em;color:#C96A88;margin-bottom:3px;">2023</div><div style="font-family:'Cormorant Garamond',serif;font-size:21px;color:#5A3B44;">Ta'aruf &amp; Lamaran</div><div style="font-size:12.5px;color:#8A6B73;line-height:1.7;margin-top:4px;font-weight:300;">Dengan niat baik, Rangga datang melamar dan diterima dengan bahagia.</div></div>
+                </div>
+                <div style="position:relative;display:flex;gap:16px;align-items:flex-start;">
+                  <span style="position:relative;display:inline-block;width:33px;height:33px;flex:none;background:#FCEEF2;"><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(0deg);"></span><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(72deg);"></span><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(144deg);"></span><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(216deg);"></span><span style="position:absolute;left:10px;top:1px;width:12px;height:16px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(288deg);"></span><span style="position:absolute;left:12px;top:12px;width:8px;height:8px;border-radius:50%;background:#F4C64E;"></span></span>
+                  <div style="text-align:left;"><div style="font-size:11px;letter-spacing:.16em;color:#C96A88;margin-bottom:3px;">2026</div><div style="font-family:'Cormorant Garamond',serif;font-size:21px;color:#5A3B44;">Menuju Halal</div><div style="font-size:12.5px;color:#8A6B73;line-height:1.7;margin-top:4px;font-weight:300;">Menyatukan dua hati dalam ikatan suci pernikahan.</div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Countdown -->
+            <div style="padding:56px 30px;text-align:center;background:#FCEEF2;">
+              <div style="font-size:10px;letter-spacing:.34em;color:#C96A88;margin-bottom:10px;">MENGHITUNG HARI</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:34px;color:#5A3B44;margin-bottom:6px;">Save The Date</div>
+              <div style="font-size:12.5px;letter-spacing:.14em;color:#8A6B73;margin-bottom:26px;">Sabtu, 24 Oktober 2026</div>
+              <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+                <div style="min-width:64px;border:1px solid #EFD3DD;border-radius:14px;padding:14px 8px;background:#fff;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#C96A88;line-height:1;">{{ cd.d }}</div><div style="font-size:9.5px;letter-spacing:.18em;color:#8A6B73;margin-top:6px;">HARI</div></div>
+                <div style="min-width:64px;border:1px solid #EFD3DD;border-radius:14px;padding:14px 8px;background:#fff;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#C96A88;line-height:1;">{{ cd.h }}</div><div style="font-size:9.5px;letter-spacing:.18em;color:#8A6B73;margin-top:6px;">JAM</div></div>
+                <div style="min-width:64px;border:1px solid #EFD3DD;border-radius:14px;padding:14px 8px;background:#fff;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#C96A88;line-height:1;">{{ cd.m }}</div><div style="font-size:9.5px;letter-spacing:.18em;color:#8A6B73;margin-top:6px;">MENIT</div></div>
+                <div style="min-width:64px;border:1px solid #EFD3DD;border-radius:14px;padding:14px 8px;background:#fff;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#C96A88;line-height:1;">{{ cd.s }}</div><div style="font-size:9.5px;letter-spacing:.18em;color:#8A6B73;margin-top:6px;">DETIK</div></div>
+              </div>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Anindya+%26+Rangga&dates=20261024T010000Z/20261024T070000Z&location=Pendopo+Kusuma+Yogyakarta" target="_blank" rel="noopener" style="display:inline-block;margin-top:28px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:#C96A88;border-radius:999px;padding:13px 28px;text-decoration:none;">Simpan ke Kalender</a>
+            </div>
+
+            <!-- Acara -->
+            <div style="padding:56px 30px;background:#F7E1E8;">
+              <div style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:30px;color:#5A3B44;margin-bottom:28px;">Rangkaian Acara</div>
+              <div style="display:flex;flex-direction:column;gap:20px;">
+                <div style="border:1px solid #E6B3C4;border-radius:16px;padding:28px 22px;text-align:center;background:#FCEEF2;">
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:25px;color:#C96A88;margin-bottom:12px;">Akad Nikah</div>
+                  <div style="font-size:13px;letter-spacing:.03em;color:#6B4C54;line-height:1.95;">Sabtu, 24 Oktober 2026<br>08.00 — 10.00 WIB<br>Pendopo Kusuma, Yogyakarta</div>
+                  <a href="https://maps.google.com" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;font-size:11px;letter-spacing:.14em;color:#A84E6E;border:1px solid #E6B3C4;border-radius:999px;padding:8px 18px;text-decoration:none;">Lihat Lokasi</a>
+                </div>
+                <div style="border:1px solid #E6B3C4;border-radius:16px;padding:28px 22px;text-align:center;background:#FCEEF2;">
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:25px;color:#C96A88;margin-bottom:12px;">Resepsi</div>
+                  <div style="font-size:13px;letter-spacing:.03em;color:#6B4C54;line-height:1.95;">Sabtu, 24 Oktober 2026<br>11.00 — 14.00 WIB<br>Pendopo Kusuma, Yogyakarta</div>
+                  <a href="https://maps.google.com" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;font-size:11px;letter-spacing:.14em;color:#A84E6E;border:1px solid #E6B3C4;border-radius:999px;padding:8px 18px;text-decoration:none;">Lihat Lokasi</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Galeri -->
+            <div style="padding:56px 30px;text-align:center;background:#FCEEF2;">
+              <div style="font-size:10px;letter-spacing:.34em;color:#C96A88;margin-bottom:8px;">MOMEN KAMI</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#5A3B44;margin-bottom:24px;">Galeri</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                <div style="aspect-ratio:1;overflow:hidden;border-radius:10px;"><img src="assets/sakura-couple.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;"></div>
+                <div style="aspect-ratio:1;overflow:hidden;border-radius:10px;"><img src="assets/sakura-couple.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 55%;"></div>
+                <div style="aspect-ratio:1;overflow:hidden;border-radius:10px;"><img src="assets/sakura-couple.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:25% 35%;"></div>
+                <div style="aspect-ratio:1;overflow:hidden;border-radius:10px;"><img src="assets/sakura-couple.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:75% 40%;"></div>
+              </div>
+            </div>
+
+            <!-- RSVP / Ucapan -->
+            <div style="padding:56px 30px;background:#F7E1E8;">
+              <div style="text-align:center;font-size:10px;letter-spacing:.34em;color:#C96A88;margin-bottom:8px;">DOA &amp; RESTU</div>
+              <div style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:30px;color:#5A3B44;margin-bottom:24px;">Konfirmasi &amp; Ucapan</div>
+              <form onSubmit="{{ submitWish }}" style="display:flex;flex-direction:column;gap:12px;">
+                <input ref="{{ nameRef }}" type="text" placeholder="Nama Anda" style="font-family:'Jost',sans-serif;font-size:14px;color:#5A3B44;background:#FCEEF2;border:1px solid #EFD3DD;border-radius:10px;padding:13px 16px;outline:none;">
+                <div style="display:flex;gap:8px;">
+                  <button type="button" data-attend data-val="Hadir" onClick="{{ setAttend }}" style="flex:1;cursor:pointer;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;border:1px solid #C96A88;background:#C96A88;color:#fff;border-radius:10px;padding:11px 4px;transition:all .25s;">Hadir</button>
+                  <button type="button" data-attend data-val="Ragu" onClick="{{ setAttend }}" style="flex:1;cursor:pointer;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;border:1px solid #EFD3DD;background:transparent;color:#C96A88;border-radius:10px;padding:11px 4px;transition:all .25s;">Ragu</button>
+                  <button type="button" data-attend data-val="Tidak Hadir" onClick="{{ setAttend }}" style="flex:1;cursor:pointer;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;border:1px solid #EFD3DD;background:transparent;color:#C96A88;border-radius:10px;padding:11px 4px;transition:all .25s;">Tidak</button>
+                </div>
+                <textarea ref="{{ msgRef }}" rows="3" placeholder="Tulis ucapan &amp; doa..." style="font-family:'Jost',sans-serif;font-size:14px;color:#5A3B44;background:#FCEEF2;border:1px solid #EFD3DD;border-radius:10px;padding:13px 16px;outline:none;resize:none;"></textarea>
+                <button type="submit" style="cursor:pointer;font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:#A84E6E;border:none;border-radius:999px;padding:14px;">Kirim Ucapan</button>
+              </form>
+              <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;max-height:260px;overflow-y:auto;">
+                <sc-for list="{{ wishes }}" as="w" hint-placeholder-count="2">
+                  <div style="background:#FCEEF2;border:1px solid #EFD3DD;border-radius:12px;padding:14px 16px;text-align:left;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;">
+                      <span style="font-family:'Cormorant Garamond',serif;font-size:17px;color:#5A3B44;">{{ w.name }}</span>
+                      <span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#A84E6E;border:1px solid #EFD3DD;border-radius:999px;padding:3px 9px;">{{ w.attend }}</span>
+                    </div>
+                    <div style="font-size:13px;color:#7C6068;line-height:1.6;font-weight:300;">{{ w.msg }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <!-- Amplop Digital -->
+            <div style="padding:56px 30px;text-align:center;background:#FCEEF2;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#5A3B44;margin-bottom:10px;">Amplop Digital</div>
+              <div style="font-size:13px;color:#8A6B73;line-height:1.8;font-weight:300;max-width:300px;margin:0 auto 24px;">Doa restu Anda merupakan karunia yang berharga. Jika berkenan memberi tanda kasih, dapat melalui:</div>
+              <div style="border:1px solid #EFD3DD;border-radius:16px;padding:24px;background:#fff;max-width:300px;margin:0 auto;">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#C96A88;margin-bottom:6px;">Bank Mandiri</div>
+                <div style="font-size:20px;letter-spacing:.14em;color:#5A3B44;">1370 0098 7654 3</div>
+                <div style="font-size:12.5px;color:#8A6B73;margin-top:6px;">a.n. Anindya Larasati</div>
+              </div>
+            </div>
+
+            <!-- Penutup -->
+            <div style="position:relative;padding:60px 34px;text-align:center;background:#F7E1E8;overflow:hidden;">
+              <span style="position:absolute;top:0;left:14%;width:10px;height:12px;background:#EFB9CB;border-radius:80% 0 55% 50%/55% 0 80% 50%;animation:petalFall 10s linear infinite;"></span>
+              <span style="position:absolute;top:0;left:52%;width:9px;height:11px;background:#F3C5D3;border-radius:80% 0 55% 50%/55% 0 80% 50%;animation:petalFall 12s linear infinite 1.6s;"></span>
+              <span style="position:absolute;top:0;left:84%;width:11px;height:13px;background:#F6D2DD;border-radius:80% 0 55% 50%/55% 0 80% 50%;animation:petalFall 9s linear infinite 2.4s;"></span>
+              <div style="position:relative;font-size:13.5px;color:#6B4C54;line-height:1.95;font-weight:300;max-width:300px;margin:0 auto 22px;">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</div>
+              <div style="position:relative;font-size:12.5px;letter-spacing:.1em;color:#A84E6E;margin-bottom:20px;">Wassalamu'alaikum Warahmatullahi Wabarakatuh</div>
+              <div style="position:relative;display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px;"><span style="width:34px;height:1px;background:linear-gradient(to right,transparent,#E6B3C4);"></span><span style="position:relative;display:inline-block;width:26px;height:26px;flex:none;"><span style="position:absolute;left:7px;top:0;width:11px;height:14px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(0deg);"></span><span style="position:absolute;left:7px;top:0;width:11px;height:14px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(72deg);"></span><span style="position:absolute;left:7px;top:0;width:11px;height:14px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(144deg);"></span><span style="position:absolute;left:7px;top:0;width:11px;height:14px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(216deg);"></span><span style="position:absolute;left:7px;top:0;width:11px;height:14px;background:radial-gradient(circle at 50% 85%,#F8DCE6,#EBA6C0);border-radius:50% 50% 45% 45%/68% 68% 40% 40%;transform-origin:50% 100%;transform:rotate(288deg);"></span><span style="position:absolute;left:9px;top:9px;width:7px;height:7px;border-radius:50%;background:#F4C64E;"></span></span><span style="width:34px;height:1px;background:linear-gradient(to left,transparent,#E6B3C4);"></span></div>
+              <div style="position:relative;font-size:11px;letter-spacing:.2em;color:#8A6B73;margin-bottom:8px;">KAMI YANG BERBAHAGIA</div>
+              <div style="position:relative;font-family:'Cormorant Garamond',serif;font-size:38px;color:#5A3B44;">Anindya &amp; Rangga</div>
+            </div>
+
+            <div style="padding:16px;text-align:center;background:#C96A88;color:#fff;font-size:11px;letter-spacing:.2em;">PRATINJAU DEMO — TEMPLATE SAKURA BLOSSOM</div>
+
+          </sc-if>
+
+          <!-- ===================== GENERIC (template lain) ===================== -->
+          <sc-if value="{{ cur.isGeneric }}" hint-placeholder-val="{{ true }}">
+
+          <!-- Cover with image -->
+          <sc-if value="{{ cur.hasImg }}" hint-placeholder-val="{{ false }}">
+            <div style="position:relative;height:460px;overflow:hidden;">
+              <img data-cover-img="" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+              <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(24,22,19,.15) 30%,rgba(24,22,19,.78));"></div>
+              <div style="position:absolute;left:0;right:0;bottom:40px;text-align:center;color:#F7EFDD;padding:0 26px;">
+                <div style="font-size:10px;letter-spacing:.36em;color:{{ cur.soft }};margin-bottom:12px;">THE WEDDING OF</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:46px;line-height:1.04;">Anindya <span style="font-style:italic;">&amp;</span> Rangga</div>
+                <div style="margin-top:18px;font-size:11px;letter-spacing:.28em;">SABTU · 24 OKTOBER 2026</div>
+              </div>
+            </div>
+          </sc-if>
+
+          <!-- Cover color -->
+          <sc-if value="{{ cur.noImg }}" hint-placeholder-val="{{ false }}">
+            <div style="position:relative;padding:70px 30px 56px;text-align:center;">
+              <div style="font-size:10px;letter-spacing:.36em;color:{{ cur.accent }};margin-bottom:14px;">THE WEDDING OF</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:52px;line-height:1.02;color:{{ cur.ink }};">Anindya<br><span style="font-style:italic;color:{{ cur.accent }};">&amp;</span><br>Rangga</div>
+              <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin:24px 0 14px;"><span style="width:30px;height:1px;background:{{ cur.accent }};"></span><span style="width:6px;height:6px;background:{{ cur.accent }};transform:rotate(45deg);"></span><span style="width:30px;height:1px;background:{{ cur.accent }};"></span></div>
+              <div style="font-size:11px;letter-spacing:.28em;color:{{ cur.ink }};opacity:.7;">SABTU · 24 OKTOBER 2026</div>
+            </div>
+          </sc-if>
+
+          <!-- Quote -->
+          <div style="padding:44px 34px;text-align:center;background:{{ cur.tint }};">
+            <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.6;color:{{ cur.ink }};">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya."</div>
+            <div style="margin-top:16px;font-size:11px;letter-spacing:.26em;color:{{ cur.accent }};">— QS. AR-RUM 21 —</div>
+          </div>
+
+          <!-- Acara -->
+          <div style="padding:48px 30px;">
+            <div style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:30px;color:{{ cur.ink }};margin-bottom:28px;">Rangkaian Acara</div>
+            <div style="display:flex;flex-direction:column;gap:18px;">
+              <div style="border:1px solid {{ cur.accent }};border-radius:16px;padding:26px 22px;text-align:center;">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:{{ cur.accent }};margin-bottom:8px;">Akad Nikah</div>
+                <div style="font-size:13px;letter-spacing:.05em;color:{{ cur.ink }};line-height:1.9;">Sabtu, 24 Oktober 2026<br>08.00 — 10.00 WIB<br>Pendopo Kusuma, Yogyakarta</div>
+              </div>
+              <div style="border:1px solid {{ cur.accent }};border-radius:16px;padding:26px 22px;text-align:center;">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:{{ cur.accent }};margin-bottom:8px;">Resepsi</div>
+                <div style="font-size:13px;letter-spacing:.05em;color:{{ cur.ink }};line-height:1.9;">Sabtu, 24 Oktober 2026<br>11.00 — 14.00 WIB<br>Pendopo Kusuma, Yogyakarta</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Closing -->
+          <div style="padding:50px 30px 60px;text-align:center;background:{{ cur.tint }};">
+            <div style="font-size:14px;line-height:1.8;color:{{ cur.ink }};font-weight:300;max-width:300px;margin:0 auto 24px;">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu berkenan hadir dan memberikan doa restu.</div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 20px;"><span style="width:30px;height:1px;background:{{ cur.accent }};"></span><span style="width:6px;height:6px;background:{{ cur.accent }};transform:rotate(45deg);"></span><span style="width:30px;height:1px;background:{{ cur.accent }};"></span></div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:34px;color:{{ cur.ink }};">Anindya &amp; Rangga</div>
+          </div>
+
+          <div style="padding:16px;text-align:center;background:{{ cur.accent }};color:#fff;font-size:11px;letter-spacing:.2em;">PRATINJAU DEMO — TEMPLATE {{ cur.upper }}</div>
+
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: &quot;100%&quot;, &quot;height&quot;: &quot;100%&quot; },
+  &quot;density&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Sedang&quot;, &quot;options&quot;: [&quot;Nyaman&quot;,&quot;Sedang&quot;,&quot;Padat&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Katalog&quot; },
+  &quot;cardStyle&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Berbayang&quot;, &quot;options&quot;: [&quot;Berbayang&quot;,&quot;Bergaris&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Katalog&quot; },
+  &quot;reveal&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Animasi&quot; }
+}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.gridRef = React.createRef();
+    this.barRef = React.createRef();
+    this.nameRef = React.createRef();
+    this.msgRef = React.createRef();
+    this.state = {
+      modalOpen: false, filter: 'Semua', current: this.build('elegance-gold'),
+      cd: this.calcCd(), attend: 'Hadir', wishes: this.loadWishes(),
+    };
+  }
+
+  calcCd() {
+    const t = new Date('2026-10-24T08:00:00+07:00').getTime();
+    let s = Math.max(0, Math.floor((t - Date.now()) / 1000));
+    const d = Math.floor(s / 86400); s -= d * 86400;
+    const h = Math.floor(s / 3600); s -= h * 3600;
+    const m = Math.floor(s / 60); s -= m * 60;
+    const p = (n) => String(n).padStart(2, '0');
+    return { d: String(d), h: p(h), m: p(m), s: p(s) };
+  }
+  loadWishes() {
+    try {
+      const raw = JSON.parse(localStorage.getItem('kirana_wishes') || 'null');
+      if (Array.isArray(raw) && raw.length) return raw;
+    } catch (e) {}
+    return [
+      { name: 'Dinda & Keluarga', attend: 'Hadir', msg: 'Selamat menempuh hidup baru! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. ❤' },
+      { name: 'Bagas Prasetyo', attend: 'Hadir', msg: 'Turut berbahagia atas pernikahan kalian. Sampai jumpa di hari bahagia!' },
+    ];
+  }
+
+  templates = {
+    'elegance-gold':  { name:'Elegance Gold',  cat:'Elegan',      bg:'#FBF5E9', ink:'#3A342A', accent:'#B08D4F', img:null },
+    'sekar-jawa':     { name:'Sekar Jawa',     cat:'Tradisional', bg:'#EFE7D8', ink:'#3A2E22', accent:'#9C6B3F', img:'assets/prewed.webp' },
+    'sakura-blossom': { name:'Sakura Blossom', cat:'Floral',      bg:'#FBF0EF', ink:'#5A3B3B', accent:'#C68A86', img:null },
+    'royal-black':    { name:'Royal Black',    cat:'Elegan',      bg:'#201D19', ink:'#F1E7D4', accent:'#C9AE7E', img:null },
+    'blush-peony':    { name:'Blush Peony',    cat:'Floral',      bg:'#FAF3EC', ink:'#4A3A32', accent:'#C08A5E', img:'assets/bouquet.jpg' },
+    'nuansa-islami':  { name:'Nuansa Islami',  cat:'Islami',      bg:'#F1F3EC', ink:'#2E3A2E', accent:'#9C8A54', img:null },
+    'rustic-garden':  { name:'Rustic Garden',  cat:'Floral',      bg:'#F4F1E6', ink:'#3D4230', accent:'#8A945F', img:'assets/floral-corner.png' },
+    'serenity-white': { name:'Serenity White', cat:'Minimalis',   bg:'#FCFBF8', ink:'#33302B', accent:'#A99B82', img:null },
+  };
+
+  build(id) {
+    const t = this.templates ? this.templates[id] : {
+      name:'Elegance Gold', cat:'Elegan', bg:'#FBF5E9', ink:'#3A342A', accent:'#B08D4F', img:null
+    };
+    const hasImg = !!t.img;
+    return {
+      ...t, hasImg, noImg: !hasImg,
+      upper: t.name.toUpperCase(),
+      soft: '#EAD9B4',
+      tint: t.bg === '#201D19' ? '#26221D' : 'rgba(0,0,0,0.02)',
+      isElegance: id === 'elegance-gold',
+      isSakura: id === 'sakura-blossom',
+      isGeneric: id !== 'elegance-gold' && id !== 'sakura-blossom',
+    };
+  }
+
+  openDemo = (e) => {
+    const id = e.currentTarget.dataset.id;
+    if (!this.templates[id]) return;
+    document.body.style.overflow = 'hidden';
+    if (this._cdTimer) clearInterval(this._cdTimer);
+    this._cdTimer = setInterval(() => this.setState({ cd: this.calcCd() }), 1000);
+    this.setState({ modalOpen: true, current: this.build(id), cd: this.calcCd() });
+  };
+  closeModal = () => {
+    document.body.style.overflow = '';
+    if (this._cdTimer) { clearInterval(this._cdTimer); this._cdTimer = null; }
+    this.setState({ modalOpen: false });
+  };
+  stop = (e) => { e.stopPropagation(); };
+  onFilter = (e) => { this.setState({ filter: e.currentTarget.dataset.cat }); };
+  setAttend = (e) => { this.setState({ attend: e.currentTarget.dataset.val }); };
+  submitWish = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const name = (this.nameRef.current && this.nameRef.current.value || '').trim();
+    const msg = (this.msgRef.current && this.msgRef.current.value || '').trim();
+    if (!name || !msg) return;
+    const wishes = [{ name, attend: this.state.attend, msg }, ...this.state.wishes].slice(0, 40);
+    try { localStorage.setItem('kirana_wishes', JSON.stringify(wishes)); } catch (e) {}
+    if (this.nameRef.current) this.nameRef.current.value = '';
+    if (this.msgRef.current) this.msgRef.current.value = '';
+    this.setState({ wishes });
+  };
+  applyAttend() {
+    const accent = (this.state.current && this.state.current.accent) || '#B08D4F';
+    document.querySelectorAll('[data-attend]').forEach(b => {
+      const on = b.dataset.val === this.state.attend;
+      b.style.background = on ? accent : 'transparent';
+      b.style.color = on ? '#fff' : accent;
+      b.style.borderColor = accent;
+    });
+  }
+
+  applyDensity() {
+    const g = this.gridRef.current; if (!g) return;
+    const m = { Nyaman:'360px', Sedang:'300px', Padat:'250px' };
+    g.style.columns = (m[this.props.density] || '300px');
+    g.style.columnGap = '26px';
+  }
+  applyCardStyle() {
+    if (!this.gridRef.current) return;
+    const bordered = this.props.cardStyle === 'Bergaris';
+    document.querySelectorAll('[data-card]').forEach(c => {
+      if (bordered) { c.style.boxShadow = 'none'; c.style.borderColor = '#D9C7A3'; }
+      else { c.style.boxShadow = '0 14px 34px -20px rgba(44,40,34,.4)'; c.style.borderColor = '#EFE7D8'; }
+    });
+  }
+  applyFilter() {
+    const f = this.state.filter;
+    document.querySelectorAll('[data-card]').forEach(c => {
+      c.style.display = (f === 'Semua' || c.dataset.cat === f) ? 'inline-block' : 'none';
+    });
+    document.querySelectorAll('[data-chip]').forEach(ch => {
+      const on = ch.dataset.cat === f;
+      ch.style.background = on ? '#B08D4F' : 'transparent';
+      ch.style.color = on ? '#fff' : '#6B6455';
+      ch.style.borderColor = on ? '#B08D4F' : '#D9C7A3';
+    });
+  }
+  applyReveal() {
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (this._io) { this._io.disconnect(); this._io = null; }
+    if (this.props.reveal === false || !('IntersectionObserver' in window)) {
+      els.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+      return;
+    }
+    els.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px)';
+      el.style.transition = 'opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1)';
+      el.style.transitionDelay = ((i % 5) * 70) + 'ms';
+    });
+    this._io = new IntersectionObserver((ents) => {
+      ents.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.style.opacity = '1';
+          en.target.style.transform = 'none';
+          this._io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(el => this._io.observe(el));
+  }
+
+  componentDidMount() {
+    this.applyDensity();
+    this.applyCardStyle();
+    this.applyFilter();
+    this.applyReveal();
+    this._esc = (e) => { if (e.key === 'Escape') this.closeModal(); };
+    window.addEventListener('keydown', this._esc);
+  }
+  componentDidUpdate(prevProps) {
+    const pp = prevProps || {};
+    if (pp.density !== this.props.density) this.applyDensity();
+    if (pp.cardStyle !== this.props.cardStyle) this.applyCardStyle();
+    if (pp.reveal !== this.props.reveal) this.applyReveal();
+    this.applyFilter();
+    if (this.state.modalOpen) {
+      if (this.state.current.hasImg) {
+        const el = document.querySelector('[data-cover-img]');
+        if (el && el.getAttribute('src') !== this.state.current.img) el.src = this.state.current.img;
+      }
+      this.applyAttend();
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this._esc);
+    if (this._io) this._io.disconnect();
+    if (this._cdTimer) clearInterval(this._cdTimer);
+    document.body.style.overflow = '';
+  }
+
+  renderVals() {
+    return {
+      modalOpen: this.state.modalOpen,
+      cur: this.state.current,
+      cd: this.state.cd,
+      attend: this.state.attend,
+      wishes: this.state.wishes,
+      openDemo: this.openDemo,
+      closeModal: this.closeModal,
+      stop: this.stop,
+      onFilter: this.onFilter,
+      setAttend: this.setAttend,
+      submitWish: this.submitWish,
+      nameRef: this.nameRef,
+      msgRef: this.msgRef,
+      gridRef: this.gridRef,
+      barRef: this.barRef,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -73,15 +73,83 @@
             background: #d9c7a3;
             border-radius: 10px;
           }
-          @media (max-width: 640px) {
+          .nav-menu-toggle-input {
+            display: none;
+          }
+          .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 34px;
+            height: 34px;
+            padding: 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            flex-shrink: 0;
+          }
+          .nav-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: #2c2822;
+            border-radius: 2px;
+            transition:
+              transform 0.3s ease,
+              opacity 0.3s ease;
+          }
+          #nav-menu-toggle:checked ~ header .nav-toggle span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+          }
+          #nav-menu-toggle:checked ~ header .nav-toggle span:nth-child(2) {
+            opacity: 0;
+          }
+          #nav-menu-toggle:checked ~ header .nav-toggle span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+          }
+          .nav-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(44, 40, 34, 0.35);
+            z-index: 98;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: default;
+          }
+          #nav-menu-toggle:checked ~ .nav-overlay {
+            display: block;
+            opacity: 1;
+          }
+          @media (max-width: 860px) {
+            .nav-toggle {
+              display: flex;
+            }
             [data-navlinks] {
-              width: 100%;
-              justify-content: center;
-              gap: 12px 18px;
-              margin-top: 4px;
+              position: fixed;
+              top: 0;
+              right: 0;
+              z-index: 99;
+              height: 100vh;
+              width: min(78vw, 320px);
+              background: #fbf6ec;
+              flex-direction: column;
+              align-items: flex-start;
+              justify-content: flex-start;
+              gap: 22px;
+              margin-top: 0;
+              padding: 96px 32px 32px;
+              box-shadow: -10px 0 30px rgba(44, 40, 34, 0.14);
+              transform: translateX(100%);
+              transition: transform 0.35s ease;
+            }
+            #nav-menu-toggle:checked ~ header [data-navlinks] {
+              transform: translateX(0);
             }
             [data-navlinks] a {
-              font-size: 13px;
+              font-size: 15px;
             }
           }
         </style>
@@ -96,6 +164,12 @@
           position: relative;
         "
       >
+        <input
+          type="checkbox"
+          id="nav-menu-toggle"
+          class="nav-menu-toggle-input"
+          aria-hidden="true"
+        />
         <!-- NAV -->
         <header
           style="
@@ -132,15 +206,17 @@
                 color: #2c2822;
               "
             >
-              <span
+              <img
+                src="assets/logo.png"
+                alt="Eri logo"
                 style="
-                  width: 10px;
-                  height: 10px;
-                  background: #b08d4f;
-                  transform: rotate(45deg);
-                  display: inline-block;
+                  width: 42px;
+                  height: 42px;
+                  object-fit: contain;
+                  display: block;
+                  flex-shrink: 0;
                 "
-              ></span>
+              />
               <span
                 style="display: flex; flex-direction: column; line-height: 1"
               >
@@ -151,7 +227,7 @@
                     font-weight: 600;
                     letter-spacing: 0.6px;
                   "
-                  >Kirana</span
+                  >Eri</span
                 >
                 <span
                   style="
@@ -165,6 +241,7 @@
               </span>
             </a>
             <div
+              id="nav-links"
               data-navlinks=""
               style="
                 display: flex;
@@ -232,8 +309,18 @@
                 >Kontak</a
               >
             </div>
+            <label
+              for="nav-menu-toggle"
+              class="nav-toggle"
+              aria-label="Buka menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
           </nav>
         </header>
+        <label for="nav-menu-toggle" class="nav-overlay" aria-hidden="true"></label>
 
         <!-- HERO -->
         <section
@@ -2174,7 +2261,7 @@
                   margin: 0 0 18px;
                 "
               >
-                Kirana menghadirkan layanan pembuatan undangan digital yang
+                Eri menghadirkan layanan pembuatan undangan digital yang
                 dirancang dengan cita rasa estetika tinggi. Setiap template kami
                 olah dengan detail — mulai dari tipografi, komposisi warna,
                 hingga alur cerita — agar undangan Anda terasa personal dan
@@ -2265,18 +2352,6 @@
           "
         >
           <div
-            style="
-              position: absolute;
-              bottom: -70px;
-              left: -60px;
-              width: min(38vw, 420px);
-              opacity: 0.09;
-              pointer-events: none;
-            "
-          >
-            <img src="assets/floral-corner.png" alt="" style="width: 100%" />
-          </div>
-          <div
             data-reveal=""
             style="
               position: relative;
@@ -2306,6 +2381,19 @@
             >
               Siap mewujudkan undangan impian Anda?
             </h2>
+            <p
+              style="
+                font-size: 15px;
+                line-height: 1.7;
+                color: #a79e8c;
+                font-weight: 300;
+                max-width: 480px;
+                margin: 0 auto 30px;
+              "
+            >
+              Tidak menemukan desain yang pas? Kami juga menerima pesanan
+              undangan custom sesuai keinginan dan tema acara Anda.
+            </p>
             <a
               href="https://wa.me/6281578108882"
               target="_blank"
@@ -2350,22 +2438,24 @@
                   margin-bottom: 16px;
                 "
               >
-                <span
+                <img
+                  src="assets/logo.png"
+                  alt="Eri logo"
                   style="
-                    width: 10px;
-                    height: 10px;
-                    background: #b08d4f;
-                    transform: rotate(45deg);
-                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    object-fit: contain;
+                    display: block;
+                    flex-shrink: 0;
                   "
-                ></span>
+                />
                 <span
                   style="
                     font-family: &quot;Cormorant Garamond&quot;, serif;
                     font-size: 26px;
                     font-weight: 600;
                   "
-                  >Kirana</span
+                  >Eri</span
                 >
               </div>
               <p
@@ -2412,7 +2502,7 @@
                     transition: color 0.3s;
                   "
                   style-hover="color:#C9AE7E;"
-                  >WhatsApp · +62 815 7810 8882</a
+                  >WhatsApp · Husyaeri</a
                 >
                 <a
                   href="https://instagram.com"
@@ -2424,17 +2514,17 @@
                     transition: color 0.3s;
                   "
                   style-hover="color:#C9AE7E;"
-                  >Instagram · @kirana.undangan</a
+                  >Instagram · @eri.undangan</a
                 >
                 <a
-                  href="mailto:halo@kirana.id"
+                  href="mailto:husyaeri@gmail.com"
                   style="
                     color: #e9e0cf;
                     text-decoration: none;
                     transition: color 0.3s;
                   "
                   style-hover="color:#C9AE7E;"
-                  >Email · halo@kirana.id</a
+                  >Email · husyaeri@gmail.com</a
                 >
               </div>
             </div>
@@ -2512,7 +2602,7 @@
               color: #7c7566;
             "
           >
-            © 2026 Kirana Undangan Digital. Seluruh hak cipta dilindungi.
+            © 2026 Eri Undangan Digital. Seluruh hak cipta dilindungi.
           </div>
         </footer>
 
